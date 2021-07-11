@@ -1,12 +1,12 @@
 version: '3.7'
 services:
-  postgres:
+  docker-sql:
     image: mysql:8.0.19
     ports:
       - '3306:3306'
     volumes:
       - ./mysqldb:/var/lib/mysql/
-      - ./resources:/docker-entrypoint-initdb.d/
+      - ./src/test/resources:/docker-entrypoint-initdb.d/
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
